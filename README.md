@@ -1,1 +1,11 @@
-# This is a README
+# Plugins
+- vim-go
+- vim-airline
+- vim-airline-themes
+- vim-colorschemes
+- vim-fugitive
+- vim-indent-guides
+- neocomplete
+- nerdtree
+- nerdtree-git-plugin
+- tagbar
