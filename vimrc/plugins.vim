@@ -70,7 +70,8 @@ set completeopt-=preview
 
 "    VIM-Go
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "gofmt"
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
 au FileType go nnoremap <leader>gb :GoBuild<CR>
 au FileType go nnoremap <leader>gi :GoInstall<CR>
 let g:go_disable_autoinstall = 0
