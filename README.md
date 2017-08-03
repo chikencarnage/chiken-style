@@ -9,6 +9,11 @@
 - nerdtree
 - nerdtree-git-plugin
 - tagbar
+- syntastic
+- vim-puppet
+- vim-snipmate
+- vim-snippets
+- vim-addon-mw-utils
 
 # Git branch in bash prompt
 ```
