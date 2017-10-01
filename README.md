@@ -14,6 +14,7 @@
 - vim-snipmate
 - vim-snippets
 - vim-addon-mw-utils
+- tlib_vim
 
 # Git branch in bash prompt
 ```
