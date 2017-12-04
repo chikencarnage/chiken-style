@@ -46,41 +46,49 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='minimalist'
 
-"    Neocomplete
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#enable_smart_case = 1
-map <leader>nc :NeoCompleteToggle<CR>
-" AutoComplPop like behavior.
-let g:neocomplete#enable_auto_select = 1
-"Space to select items: 
-inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-if !exists('g:neocomplete#source#omni#input_patters')
-	let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\.\w*'
-set completeopt-=preview
-
 "    VIM-Go
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave = 1
 au FileType go nnoremap <leader>gb :GoBuild<CR>
 au FileType go nnoremap <leader>gi :GoInstall<CR>
+au FileType go nnoremap <leader>ge :GoErrCheck<CR>
+au FileType go nnoremap <leader>gl :GoLint<CR>
 let g:go_disable_autoinstall = 0
 let g:go_highlight_functions = 1  
 let g:go_highlight_methods = 1  
 let g:go_highlight_structs = 1  
 let g:go_highlight_operators = 1  
 let g:go_highlight_build_constraints = 1
+let g:go_list_type = "quickfix"
 
 "    Fugitive
 map <leader>gdi :Gdiff<CR>
 map <leader>gst :Gstatus <CR>
+
+"    Bash
+let g:BASH_AuthorName   = ''
+let g:BASH_Email        = ''
+let g:BASH_Company      = ''
+au FileType sh setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+
+"    Python
+au FileType py setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+
+"    syntastic
+map <leader>sc :SyntasticCheck<CR>
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'gometalinter']
+let g:syntastic_go_gometalinter_args = ['--disable-all', '--enable=errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }

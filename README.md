@@ -5,7 +5,7 @@
 - vim-colorschemes
 - vim-fugitive
 - vim-indent-guides
-- neocomplete
+- YouCompleteMe
 - nerdtree
 - nerdtree-git-plugin
 - tagbar
